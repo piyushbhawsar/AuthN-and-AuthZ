@@ -2,8 +2,10 @@ require("dotenv").config()
 const express = require("express")
 const { dbConnect } = require("./config/dbConnect")
 const router = require("./routes/user")
+const cookieParser = require("cookie-parser")
 const app = express()
 
+app.use(cookieParser)
 app.use(express.json())
 
 app.use("/api/v1",router)
